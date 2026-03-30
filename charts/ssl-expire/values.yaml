@@ -1,0 +1,45 @@
+replicaCount: 1
+
+image:
+  repository: barkinatici/ssl-expire
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ssl-expire
+
+service:
+  type: ClusterIP
+  port: 2112
+  targetPort: 2112
+
+config:
+  scrapeInterval: 30s
+  listenAddress: ":2112"
+  targets:
+    - https://console-dev.cognipeer.com
+    - https://console.cognipeer.com
+    - https://studio-dev-azure.cognipeer.com
+    - https://studio.cognipeer.com
+    - https://crm-dev.kogniser.com
+    - https://crm.kogniser.com
+    - https://migroschatdev.cognipeer.com
+    - https://grafana-monitoring.cognipeer.com
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+serviceMonitor:
+  enabled: true
+  interval: 30s
+  path: /metrics
+  namespace: ""
+  labels:
+    release: kube-prometheus-stack

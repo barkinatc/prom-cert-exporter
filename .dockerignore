@@ -1,0 +1,10 @@
+.git
+.gitignore
+Dockerfile
+deploy/
+charts/
+*.yaml
+*.yml
+README.md
+.env
+*.log

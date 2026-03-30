@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ssl-expire.fullname" . }}-config
+  labels:
+    {{- include "ssl-expire.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    targets:
+    {{- range .Values.config.targets }}
+      - {{ . | quote }}
+    {{- end }}
+    scrape_interval: {{ .Values.config.scrapeInterval }}
+    listen_address: {{ .Values.config.listenAddress | quote }}

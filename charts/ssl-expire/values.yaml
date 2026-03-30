@@ -19,14 +19,9 @@ config:
   scrapeInterval: 30s
   listenAddress: ":2112"
   targets:
-    - https://console-dev.cognipeer.com
-    - https://console.cognipeer.com
-    - https://studio-dev-azure.cognipeer.com
-    - https://studio.cognipeer.com
-    - https://crm-dev.kogniser.com
-    - https://crm.kogniser.com
-    - https://migroschatdev.cognipeer.com
-    - https://grafana-monitoring.cognipeer.com
+    - https://www.google.com
+    - https://www.github.com
+
 
 resources: {}
 
